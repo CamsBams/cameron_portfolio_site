@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtualization & Homelab | Cameron O'Bryan</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="../index.html">Cameron <span>O'Bryan</span></a>
+        <div class="navlinks">
+          <a href="../index.html#about">About Me</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="eyebrow">Infrastructure project</div>
+        <h1>Virtualization & Homelab</h1>
+        <p class="lead">
+          A small personal lab for gaining practical experience with
+          virtualization, managed switching, and safe experimentation with
+          network services.
+        </p>
+        <div class="actions">
+          <a class="btn secondary" href="../index.html#projects">← Back to projects</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <article class="card detail">
+            <h2>Project goals</h2>
+            <p>
+              I want a controlled environment where I can deploy systems, test
+              configurations, troubleshoot issues, and document what I learn.
+            </p>
+
+            <h2>Current setup</h2>
+            <ul>
+              <li>Proxmox VE host running on a laptop.</li>
+              <li>Managed gigabit Ethernet switch.</li>
+              <li>Compact rack and patch-panel equipment.</li>
+              <li>
+                Lab network planned to remain isolated from everyday home
+                devices where practical.
+              </li>
+            </ul>
+
+            <h2>Planned learning</h2>
+            <ul>
+              <li>Deploy Linux and Windows virtual machines.</li>
+              <li>Experiment with VLANs and separated lab networks.</li>
+              <li>Practice DNS, DHCP, firewall rules, logging, and monitoring.</li>
+              <li>Document backups, updates, access controls, and recovery procedures.</li>
+            </ul>
+
+            <h2>Skills practiced</h2>
+            <div class="tags">
+              <span>Proxmox VE</span>
+              <span>Virtualization</span>
+              <span>Managed switching</span>
+              <span>Segmentation</span>
+              <span>System administration</span>
+            </div>
+
+            <h2>Security considerations</h2>
+            <p>
+              I will avoid exposing management interfaces directly to the
+              public internet. Remote access should use deliberate access
+              controls, strong authentication, current updates, and restrictive
+              firewall rules.
+            </p>
+
+            <div class="callout">
+              <strong>Next step:</strong> Currently working to add micro form factor Dell Optiplex 3060-70 into my lab rack to replace the laptop host and add addition RAM and storage.
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        © <span id="year"></span> Cameron O'Bryan ·
+        <a href="../index.html">Home</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enterprise Network Lab | Cameron O'Bryan</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="../index.html">Cameron <span>O'Bryan</span></a>
+        <div class="navlinks">
+          <a href="../index.html#about">About Me</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="eyebrow">Networking project</div>
+        <h1>Enterprise Network Lab</h1>
+        <p class="lead">
+          A multi-site enterprise-style network built in Cisco Packet Tracer to
+          practice segmentation, routing, central services, and secure
+          connectivity.
+        </p>
+        <div class="actions">
+          <a class="btn secondary" href="../index.html#projects">← Back to projects</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <article class="card detail">
+            <h2>Project goals</h2>
+            <p>
+              For this project I designed and built a multi-site enterprise-styled network that used VLANs, HSRP for gateway redundancy, OSPF routing and a site-to-site IPsec VPN to connect a branch office to the headquarters building. I wanted to practice designing a network with multiple subnets, routing, and secure connectivity while also testing my troubleshooting skills. Lastly, I used a DHCP server at headquarters to practive dynamic addressing for local and branch clients.
+            </p>
+
+            <h2>Network design</h2>
+            <ul>
+              <li>Headquarters with redundant core, distribution, and access switching layers.</li>
+              <li>Separate VLANs and IP subnets for HR, Finance, IT, and servers to keep traffic isolated.</li>
+              <li>A second building connected at the core layer, with their own subnets and routing.</li>
+              <li>A Remote branch office connected via a site-to-site IPsec VPN, to simulate a secure connection to headquarter resources and private network.</li>
+              <li>OSPF routing and a simulated ISP.</li>
+            </ul>
+
+            <h2>VPN and services</h2>
+            <p>
+              Configured a site-to-site IPsec VPN between headquarters and the
+              branch. A central DHCP server at headquarters provides addressing
+              to a branch client across the VPN. I tested IPsec status, routing,
+              and client connectivity while troubleshooting route and ACL
+              behavior.
+            </p>
+
+            <h2>Cisco Packet Tracer screenshot</h2>
+            <figure class="project-screenshot">
+              <img
+                class="project-screenshot-image"
+                src="../images/enterprise-network.png"
+                alt="Cisco Packet Tracer enterprise network topology"
+              >
+              <figcaption>
+                Cisco Packet Tracer enterprise network topology
+              </figcaption>
+            </figure>
+
+            <h2>Network Addressing Table</h2>
+            <div
+              class="addressing-table-wrap"
+              role="region"
+              aria-label="Network addressing table"
+              tabindex="0"
+            >
+              <table class="addressing-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Network</th>
+                    <th scope="col">VLAN</th>
+                    <th scope="col">Subnet</th>
+                    <th scope="col">Default gateway</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">HQ HR</th>
+                    <td>10</td>
+                    <td>10.1.10.0/24</td>
+                    <td>10.1.10.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">HQ Finance</th>
+                    <td>20</td>
+                    <td>10.1.20.0/24</td>
+                    <td>10.1.20.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">HQ IT</th>
+                    <td>30</td>
+                    <td>10.1.30.0/24</td>
+                    <td>10.1.30.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">HQ Servers</th>
+                    <td>50</td>
+                    <td>10.1.50.0/24</td>
+                    <td>10.1.50.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Building 2 HR</th>
+                    <td>10</td>
+                    <td>10.2.10.0/24</td>
+                    <td>10.2.10.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Building 2 Office Workers</th>
+                    <td>10</td>
+                    <td>10.2.20.0/24</td>
+                    <td>10.2.20.1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Branch Remote Office</th>
+                    <td>10</td>
+                    <td>10.3.10.0/24</td>
+                    <td>10.3.10.1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Troubleshooting Case Study: IPsec VPN Routing Loop</h2>
+            <h3>Project overview</h3>
+            <p>
+              While configuring a site-to-site IPsec VPN between a remote branch
+              office and headquarters in Cisco Packet Tracer, I encountered a
+              routing issue that prevented successful communication between a
+              branch PC and a server at headquarters. Although the initial ICMP
+              request reached the headquarters network through the VPN tunnel,
+              the server's reply was caught in a routing loop between the core
+              switch and the edge router.
+            </p>
+
+            <h3>Problem</h3>
+            <p>
+              I tested connectivity by pinging the DHCP server at headquarters
+              (10.1.50.10) from a PC on the remote branch network (10.3.10.0/24).
+              The ICMP request reached the server, but the reply did not make it
+              back to the branch PC.
+            </p>
+            <p>
+              During troubleshooting, I observed the returning traffic
+              repeatedly bouncing between the headquarters core switch and the
+              edge router until it was dropped. Since the request had reached
+              its destination, this pointed to a routing issue rather than an
+              initial VPN connectivity problem.
+            </p>
+
+            <h3>Troubleshooting process</h3>
+            <p>
+              I investigated the headquarters edge router's routing
+              configuration and examined its routing table. I found a static
+              route directing traffic for the 10.x.x.x private address space
+              back toward the core switch. Because the remote branch also used
+              a 10.x.x.x address range, return traffic was sent to the core
+              switch instead of toward the edge router for delivery through
+              the VPN tunnel. The core switch and edge router kept forwarding
+              the packet to each other without a valid path to its destination.
+            </p>
+
+            <h3>Solution</h3>
+            <p>
+              I removed the incorrect static route from the edge router's
+              configuration. This allowed the routing configuration to direct
+              return traffic appropriately, so the edge router could forward it
+              through the established IPsec VPN tunnel to the remote branch.
+            </p>
+
+            <h3>Verification and results</h3>
+            <p>
+              To verify the fix, I sent another ICMP ping from the branch PC to
+              the headquarters DHCP server at 10.1.50.10. The ping succeeded,
+              and the branch PC received a reply from the server. This confirmed
+              that traffic could travel from the branch to headquarters and
+              return through the VPN tunnel.
+            </p>
+
+            <h3>Key takeaways</h3>
+            <p>
+              This experience reinforced how routing tables, static routes, and
+              VPN tunnels interact. A VPN can be established and carry traffic
+              in one direction while an incorrect route prevents return traffic
+              from reaching its destination.
+            </p>
+            <p>
+              It also helped me develop a systematic troubleshooting approach:
+              verify connectivity, identify where packets stop progressing,
+              inspect routing decisions, correct the underlying configuration,
+              and test again to confirm the resolution.
+            </p>
+
+            <figure class="project-screenshot">
+              <img
+                class="project-screenshot-image"
+                src="../images/pc-ping-proof.png"
+                alt="Successful ping from the remote branch PC to the headquarters DHCP server at 10.1.50.10"
+              >
+              <figcaption>
+                Successful ping from the branch PC to the headquarters DHCP server
+              </figcaption>
+            </figure>
+
+            <h2>Skills practiced</h2>
+            <div class="tags">
+              <span>VLANs</span>
+              <span>OSPF</span>
+              <span>Default routes</span>
+              <span>IPsec VPN</span>
+              <span>ACLs</span>
+              <span>DHCP</span>
+              <span>Troubleshooting</span>
+            </div>
+
+            <h2>What I plan to add</h2>
+            <ul>
+              <li>Sanitized configuration excerpts and verification commands.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        © <span id="year"></span> Cameron O'Bryan ·
+        <a href="../index.html">Home</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

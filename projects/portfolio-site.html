@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Portfolio Website | Cameron O'Bryan</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="../index.html">Cameron <span>O'Bryan</span></a>
+        <div class="navlinks">
+          <a href="../index.html#about">About Me</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="eyebrow">Web development project</div>
+        <h1>Personal Portfolio Website</h1>
+        <p class="lead">
+          A responsive static website designed to introduce me and give
+          employers a clear way to explore individual project write-ups.
+        </p>
+        <div class="actions">
+          <a class="btn secondary" href="../index.html#projects">← Back to projects</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <article class="card detail">
+            <h2>Design goals</h2>
+            <p>
+              I wanted the homepage to feel like a personal introduction rather
+              than a résumé pasted into a webpage. It includes education,
+              hobbies, career interests, skills, and short project summaries.
+            </p>
+
+            <h2>Site structure</h2>
+            <ul>
+              <li><code>index.html</code> — homepage and project summaries.</li>
+              <li><code>styles.css</code> — shared styling and responsive layout.</li>
+              <li><code>projects/</code> — individual pages with project details.</li>
+              <li><code>images/</code> — image assets for the website.</li>
+            </ul>
+
+            <h2>Technology and deployment</h2>
+            <p>
+              The website uses HTML and CSS with a small JavaScript snippet for
+              the current year. It can be hosted as a static site through Azure
+              Static Web Apps.
+            </p>
+
+            <h2>Next steps</h2>
+            <ul>
+              <li>Replace placeholder contact and social links.</li>
+              <li>Add real project screenshots and diagrams.</li>
+              <li>Put the files in a GitHub repository.</li>
+              <li>Deploy to Azure and test on desktop and mobile.</li>
+            </ul>
+
+            <div class="callout">
+              <strong>Next step:</strong> Add your own screenshots, diagrams,
+              sanitized configuration examples, and lessons learned as you
+              develop this project. Never publish credentials or sensitive
+              network details.
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        © <span id="year"></span> Cameron O'Bryan ·
+        <a href="../index.html">Home</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

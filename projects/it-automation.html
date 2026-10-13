@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IT Deployment & Automation | Cameron O'Bryan</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="../index.html">Cameron <span>O'Bryan</span></a>
+        <div class="navlinks">
+          <a href="../index.html#about">About Me</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="eyebrow">Professional experience</div>
+        <h1>IT Deployment & Automation</h1>
+        <p class="lead">
+          Selected IT operations work completed while supporting government
+          technology and users as a Systems Apprentice.
+        </p>
+        <div class="actions">
+          <a class="btn secondary" href="../index.html#projects">← Back to projects</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <article class="card detail">
+            <h2>Endpoint protection deployment</h2>
+            <p>
+              Installed CrowdStrike endpoint protection on approximately 160
+              deployed PCs. The central security dashboard was managed by the
+              network administrator; my role focused on deployment rather than
+              independently investigating security alerts.
+            </p>
+
+            <h2>Drive data-extraction workflow</h2>
+            <p>
+              Created a script to help extract data from drives before they were
+              destroyed. The updated process improved throughput from roughly
+              one drive at a time to four drives at a time.
+            </p>
+            <p>
+              For automation I used python to create a script that would find specfic files on a drive, copy them to a network share, and log the results. The script was run on a Windows machine with the drives connected via USB. 
+            </p>
+
+            <h2>Website redesign support</h2>
+            <p>
+              I built a web scrapping program that took all the contents from over 2,000+ government pages and saved them to a network drive in a pretty format. This allowed the project manager to send all of our website information in editable documents to a editer that would professionally edit and rewrite the content for the new website.
+            </p>
+
+            <h2>Broader IT responsibilities</h2>
+            <ul>
+              <li>Remote and in-person support across eight buildings.</li>
+              <li>Workstation rebuilding, upgrades, configuration, and deployment.</li>
+              <li>Active Directory account and role-based group access support.</li>
+              <li>Network infrastructure configuration and maintenance for new HR-Building.</li>
+            </ul>
+
+            <h2>Skills demonstrated</h2>
+            <div class="tags">
+              <span>Endpoint Deployment</span>
+              <span>IT Support</span>
+              <span>Active Directory</span>
+              <span>Scripting</span>
+              <span>Web Scraping</span>
+              <span>Process Efficiency Improvement</span>
+            </div>
+
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        © <span id="year"></span> Cameron O'Bryan ·
+        <a href="../index.html">Home</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
